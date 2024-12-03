@@ -1,0 +1,3 @@
+convert mp3 to wav: ffmpeg -i input.mp3 output.wav
+convert mp4 to avi: ffmpeg -i input.mp4 output.avi
+extract audio: ffmpeg -i input.mp4 -q:a 0 -map a output.mp3
