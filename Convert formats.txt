@@ -1,3 +1,22 @@
+FFMPEG:
+
 convert mp3 to wav: ffmpeg -i input.mp3 output.wav
 convert mp4 to avi: ffmpeg -i input.mp4 output.avi
 extract audio: ffmpeg -i input.mp4 -q:a 0 -map a output.mp3
+merge video and audio: ffmpeg -i video.mp4 -i audio.mp3 -c:v copy -c:a aac output.mp4
+resize a video: ffmpeg -i input.mp4 -vf "scale=1280:720" output.mp4
+trim a video: ffmpeg -i input.mp4 -ss 00:00:00 -to 00:00:30 -c copy output.mp4
+add a watermark to video: ffmpeg -i input.mp4 -i watermark.png -filter_complex "overlay=10:10" output.mp4
+
+---------------------------------------------------------------------------------------------------------
+MAGICK:
+convert png to jpg: magick input.png output.jpg
+resize image: magick input.png -resize 800x600 output.png
+crop image: magick input.png -crop 200x200x+10+10 output.png
+rotate image: magick input.png -rotate 90 output.png
+border color: magick input.png -bordercolor white -border 10x10 output.jpg
+gray scale: magick input.png -colorspace gray output.png
+strip: magick input.png -strip -quality 90 output.png
+thumbnail: magick input.png -thumbnail 100x100 output.png
+blur: magick input.png -blur 0x8 output.png
+convert to gif: magick -delay 20 -loop 0 image.png image2.png image3.png output.gif
