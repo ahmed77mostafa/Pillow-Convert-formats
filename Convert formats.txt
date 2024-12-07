@@ -7,9 +7,13 @@ merge video and audio: ffmpeg -i video.mp4 -i audio.mp3 -c:v copy -c:a aac outpu
 resize a video: ffmpeg -i input.mp4 -vf "scale=1280:720" output.mp4
 trim a video: ffmpeg -i input.mp4 -ss 00:00:00 -to 00:00:30 -c copy output.mp4
 add a watermark to video: ffmpeg -i input.mp4 -i watermark.png -filter_complex "overlay=10:10" output.mp4
+image resize: ffmpeg -i input.jpg -resize 800x600 output.jpg
+image compression: ffmpeg -i input.jpg -quality 85 output.jpg
+image resize compression: ffmpeg -i input.jpg -resize 800x600 -quality 85 output.jpg
 
 ---------------------------------------------------------------------------------------------------------
 MAGICK:
+
 convert png to jpg: magick input.png output.jpg
 resize image: magick input.png -resize 800x600 output.png
 crop image: magick input.png -crop 200x200x+10+10 output.png
